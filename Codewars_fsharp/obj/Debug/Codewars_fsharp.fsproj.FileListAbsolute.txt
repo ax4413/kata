@@ -1,0 +1,8 @@
+F:\__git\Codewars\Codewars_fsharp\bin\Debug\Codewars_fsharp.XML
+F:\__git\Codewars\Codewars_fsharp\bin\Debug\Codewars_fsharp.exe
+F:\__git\Codewars\Codewars_fsharp\bin\Debug\Codewars_fsharp.pdb
+F:\__git\Codewars\Codewars_fsharp\bin\Debug\FSharp.Core.dll
+F:\__git\Codewars\Codewars_fsharp\bin\Debug\FSharp.Core.xml
+F:\__git\Codewars\Codewars_fsharp\obj\Debug\Codewars_fsharp.fsprojResolveAssemblyReference.cache
+F:\__git\Codewars\Codewars_fsharp\obj\Debug\Codewars_fsharp.exe
+F:\__git\Codewars\Codewars_fsharp\obj\Debug\Codewars_fsharp.pdb

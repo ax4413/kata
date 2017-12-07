@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "codewars_csharp", "codewars_csharp\codewars_csharp.csproj", "{420052BF-8501-4CD1-A805-4AE4A5FB007C}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Codewars_fsharp", "Codewars_fsharp\Codewars_fsharp.fsproj", "{401E9C98-2948-4EA8-9EBF-27FE315D20B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adventofcode", "adventofcode\adventofcode.csproj", "{810B3C77-840C-4212-ABD7-7F6368C72838}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{420052BF-8501-4CD1-A805-4AE4A5FB007C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420052BF-8501-4CD1-A805-4AE4A5FB007C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420052BF-8501-4CD1-A805-4AE4A5FB007C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420052BF-8501-4CD1-A805-4AE4A5FB007C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{401E9C98-2948-4EA8-9EBF-27FE315D20B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401E9C98-2948-4EA8-9EBF-27FE315D20B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401E9C98-2948-4EA8-9EBF-27FE315D20B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401E9C98-2948-4EA8-9EBF-27FE315D20B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{810B3C77-840C-4212-ABD7-7F6368C72838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{810B3C77-840C-4212-ABD7-7F6368C72838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{810B3C77-840C-4212-ABD7-7F6368C72838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{810B3C77-840C-4212-ABD7-7F6368C72838}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
