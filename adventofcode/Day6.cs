@@ -25,6 +25,24 @@ namespace adventofcode
             var x = ma.LoopCount;
             Assert.That(x, Is.EqualTo(5042));
         }
+
+        [Test]
+        public void test_day_6_part_2()
+        {
+            var mb = new MemoryBank16(5, 1, 10, 0, 1, 7, 13, 14, 3, 12, 8, 10, 7, 12, 0, 6);
+            //var mb = new MemoryBank4(0, 2, 7, 0);
+            var ma = new MemoryAllocator(mb);
+
+            var infinateLoopDetected = false;
+            while (!infinateLoopDetected)
+            {
+                infinateLoopDetected = !ma.RealocateMemory();
+            }
+            var x = ma.GetLoopCountSinceFirstSighting(); ;
+
+
+            Assert.That(x, Is.EqualTo(1086));
+        }
     }
     public static class Utils
     {
@@ -49,14 +67,24 @@ namespace adventofcode
     {
         Dictionary<int, int> MB { get; }
 
+        int Id { get; }
+
         IMemoryBank Reallocate();
     }
 
     public class BaseMemoryBank: IMemoryBank
     {
+        // not thread safe
+        public static int maxId = 0;
+
         public Dictionary<int, int> MB { get; protected set; }
 
-        protected BaseMemoryBank() { }
+        public int Id { get; private set; }
+
+        protected BaseMemoryBank() {
+            maxId++;
+            Id = maxId;
+        }
         
         public IMemoryBank Reallocate()
         {
@@ -83,6 +111,23 @@ namespace adventofcode
             }
 
             return new BaseMemoryBank() { MB = clone }; ;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as IMemoryBank;
+            if (other==null)
+                return false;
+            if (MB.Count != other.MB.Count)
+                return false;
+            if (MB.Keys.Except(other.MB.Keys).Any())
+                return false;
+            if (MB.Keys.Except(other.MB.Keys).Any())
+                return false;
+            foreach (var pair in MB)
+                if (!Comparer<int>.Equals(pair.Value, other.MB[pair.Key]))
+                    return false;
+            return true;
         }
     }
 
@@ -140,12 +185,22 @@ namespace adventofcode
         }
     }
 
+    
+
     public class MemoryAllocator
     {
         private HashSet<IMemoryBank> _history;
         private IMemoryBank _current;
 
         public int LoopCount => _history.Count;
+
+        public int GetLoopCountSinceFirstSighting()
+        {
+            var first = _history.Single(x => x.Equals(_current));
+
+            var count = _history.Count + 1 - first.Id;
+            return count;
+        }
 
         public MemoryAllocator(MemoryBank16 mb)
         {
