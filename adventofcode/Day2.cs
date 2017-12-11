@@ -36,7 +36,7 @@ namespace adventofcode
 94	2312	2397	333	1192	106	2713	2351	2650	2663	703	157	89	510	1824	125
 "
 , 44216)]
-        public void test_checksumPart1(string input, int expected)
+        public void test_day_2_part_1(string input, int expected)
         {
             var actual = ChecksumPart1(input);
             Assert.That(actual, Is.EqualTo(expected));
@@ -79,7 +79,7 @@ namespace adventofcode
 94	2312	2397	333	1192	106	2713	2351	2650	2663	703	157	89	510	1824	125
 "
             , 320)]
-        public void test_checksumPart2(string input, int expected)
+        public void test_day_2_part_2(string input, int expected)
         {
             var actual = ChecksumPart2(input);
             Assert.That(actual, Is.EqualTo(expected));

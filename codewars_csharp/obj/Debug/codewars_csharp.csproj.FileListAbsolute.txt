@@ -1,7 +1,0 @@
-F:\__git\Codewars\codewars_csharp\bin\Debug\codewars_csharp.dll
-F:\__git\Codewars\codewars_csharp\bin\Debug\codewars_csharp.pdb
-F:\__git\Codewars\codewars_csharp\bin\Debug\nunit.framework.dll
-F:\__git\Codewars\codewars_csharp\bin\Debug\nunit.framework.xml
-F:\__git\Codewars\codewars_csharp\obj\Debug\codewars_csharp.csprojResolveAssemblyReference.cache
-F:\__git\Codewars\codewars_csharp\obj\Debug\codewars_csharp.dll
-F:\__git\Codewars\codewars_csharp\obj\Debug\codewars_csharp.pdb

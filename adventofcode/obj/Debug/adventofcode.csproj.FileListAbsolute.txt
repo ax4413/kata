@@ -1,7 +1,0 @@
-F:\__git\Codewars\adventofcode\bin\Debug\adventofcode.dll
-F:\__git\Codewars\adventofcode\bin\Debug\adventofcode.pdb
-F:\__git\Codewars\adventofcode\bin\Debug\nunit.framework.dll
-F:\__git\Codewars\adventofcode\bin\Debug\nunit.framework.xml
-F:\__git\Codewars\adventofcode\obj\Debug\adventofcode.dll
-F:\__git\Codewars\adventofcode\obj\Debug\adventofcode.pdb
-F:\__git\Codewars\adventofcode\obj\Debug\adventofcode.csprojResolveAssemblyReference.cache

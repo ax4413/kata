@@ -16,7 +16,7 @@ namespace adventofcode
         [TestCase(123, 21, 4)]
         [TestCase(123, 51, 6)]
         [TestCase(325489, 325489, 552)]
-        public void Test_SpiralMemoryPart1(int input, int value, int expected)
+        public void test_day_3_part_3(int input, int value, int expected)
         {
             var matrix = GenerateCenterOutSpiral(input);
             var actual = GetManhatanDistance(matrix, value);
@@ -30,7 +30,7 @@ namespace adventofcode
         [TestCase(100, 21, 23)]
         [TestCase(100, 51, 54)]
         [TestCase(325489, 325489, 330785)]
-        public void Test_SpiralMemoryPart2(int input, int value, int expected)
+        public void test_day_3_part_2(int input, int value, int expected)
         {
             var actual = CalculateFirstCellValueGreaterThanValue(input, value);
             Assert.That(actual, Is.EqualTo(expected));

@@ -12,17 +12,47 @@ namespace adventofcode
     [TestFixture]
     public class Day5
     {
-        [Test, TestCaseSource(typeof(MyDataClass), "TestCases")]
-        public int Test_day_5_Part_1(string data)
+        [Test, TestCaseSource(typeof(MyDataClass), "TestCases1")]
+        public int test_day_5_part_1(string data)
         {
             var instructions = data.Split(new[] {"\r\n", "\r", "\n"}, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse);
 
             var program = new Program(instructions);
-            return program.Run();
+            return program.Run(QuesionPart.One);
         }
-    }
 
+        [Test, TestCaseSource(typeof(MyDataClass), "TestCases2")]
+        public int test_day_5_part_2(string data)
+        {
+            var instructions = data.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse);
+
+            var program = new Program(instructions);
+            return program.Run(QuesionPart.Two);
+        }
+
+        [Test]
+        public void test_day_5_part_2_big_data()
+        {
+            var instructions = MyDataClass.LARGETESTDATA.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse);
+
+            var program = new Program(instructions);
+            var x = program.Run(QuesionPart.Two);
+        }
+
+        //[Test]
+        //public void test_rob()
+        //{
+        //    var instructions = MyDataClass.LARGETESTDATA.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries)
+        //       .Select(int.Parse).ToArray();
+        //    var r = new robs_take();
+        //    var x = r.AMazeOfTwistyTrampolinesAllAlikePartTwo(instructions);
+        //}
+
+    }
+    
     public class Program
     {
         private int[] _instructions;
@@ -34,17 +64,20 @@ namespace adventofcode
             _instructions = instructions.ToArray();
         }
 
-        public int Run()
+        public int Run(QuesionPart part)
         {
-            Debug.WriteLine(GetCurrentInstructionState());
+            //Debug.WriteLine(GetCurrentInstructionState());
             while (true)
             {
-                Move();
+                if(part == QuesionPart.One)
+                    Move1();
+                if (part == QuesionPart.Two)
+                    Move2();
 
                 if (_Current_position > _instructions.Length-1)
                     return _move_count;
 
-                Debug.WriteLine(GetCurrentInstructionState());
+               // Debug.WriteLine(GetCurrentInstructionState());
             }
         }
 
@@ -57,7 +90,7 @@ namespace adventofcode
             return $"{_move_count} => " + $"{string.Join(" ", before)} ({current}) {string.Join(" ", after)}".Trim();
         }
 
-        private void Move()
+        private void Move1()
         {
             var p = _Current_position;
 
@@ -71,22 +104,59 @@ namespace adventofcode
             _Current_position += i;
             _move_count++;
         }
+
+        private void Move2()
+        {
+            var p = _Current_position;
+
+            // get current instruction
+            var i = _instructions[p];
+
+            // modify last instruction
+            if(i >= 3)
+                _instructions[p] --;
+            else
+                _instructions[p]++;
+
+            // move
+            _Current_position += i;
+            _move_count++;
+        }
     }
-
-    #region Test Data
-
+    
     public class MyDataClass
     {
-        public static IEnumerable TestCases
+        public static IEnumerable TestCases1
         {
-            get {
+            get
+            {
                 yield return new TestCaseData(@"0
 3
 0
 1
 -3").Returns(5);
 
-                yield return new TestCaseData(@"
+                yield return new TestCaseData(LARGETESTDATA).Returns(343467);
+            }
+        }
+
+        public static IEnumerable TestCases2
+        {
+            get
+            {
+                yield return new TestCaseData(@"0
+3
+0
+1
+-3").Returns(10);
+
+                yield return new TestCaseData(LARGETESTDATA).Returns(24774780);
+            }
+        }
+
+        #region Test Data
+
+        public static string LARGETESTDATA = @"
 2
 2
 0
@@ -1121,9 +1191,39 @@ namespace adventofcode
 -109
 -181
 -547
--852").Returns(4); }
-        }
+-852";
+
+        #endregion
+
     }
-    
-    #endregion
+
+
+    public class robs_take
+    {
+        public int AMazeOfTwistyTrampolinesAllAlikePartOne(int[] input)
+        {
+            return DoAMazeOfTwistyTrampolinesAllAlike(input, _ => 1);
+        }
+
+        public int AMazeOfTwistyTrampolinesAllAlikePartTwo(int[] input)
+        {
+            return DoAMazeOfTwistyTrampolinesAllAlike(input, i => i >= 3 ? -1 : 1);
+        }
+
+        int DoAMazeOfTwistyTrampolinesAllAlike(int[] input, Func<int, int> increment)
+        {
+            var jump = 0;
+            var position = 0;
+            while (position >= 0 && position < input.Length)
+            {
+                var current = input[position];
+                input[position] += increment(current);
+                position += current;
+                jump += 1;
+            }
+            return jump;
+        }
+
+    }
+
 }

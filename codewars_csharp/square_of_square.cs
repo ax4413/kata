@@ -6,6 +6,7 @@ using NUnit.Framework;
 namespace codewars_csharp
 {
     [TestFixture]
+    [Ignore("Tests take too long")]
     public class square_of_square
     {
         [TestCase(11, "1 2 4 10")]
